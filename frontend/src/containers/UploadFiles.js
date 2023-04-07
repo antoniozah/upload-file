@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const UploadFiles = () => {
     const [file, setFile] = useState(null)
-    const baseUrl = process.env.BASE_URL
+    const baseUrl = process.env.REACT_APP_BASE_URL
 
     const handleFileSelect = (event) => {
         console.log('event', event)
@@ -17,7 +17,7 @@ const UploadFiles = () => {
         console.log('image', file)
         console.log('formData', formData)
 
-        fetch(`http://localhost:3001/uploads`, {
+        fetch(`${baseUrl}/uploads`, {
             method: 'POST',
             body: formData,
             // headers: {
